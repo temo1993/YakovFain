@@ -12,10 +12,12 @@ public class BorderLayoutTest {
         JTextField txtDisplay = new JTextField(20);
         JCheckBox checkBox = new JCheckBox("Check me");
         JMenu jMenu = new JMenu("This menu");
+        JRadioButton rb1 = new JRadioButton();
 
         windowContent.add(BorderLayout.NORTH, txtDisplay);
         windowContent.add(BorderLayout.CENTER, checkBox);
         windowContent.add(BorderLayout.SOUTH, jMenu);
+        windowContent.add(BorderLayout.EAST, rb1);
 
         JFrame frame = new JFrame("BorderLayout Test");
         frame.setContentPane(windowContent);
