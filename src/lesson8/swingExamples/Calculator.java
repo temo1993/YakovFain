@@ -1,6 +1,6 @@
 package lesson8.swingExamples;
 
-import lesson9.eventHandling.CalculatorEngineMsg;
+import lesson9.eventHandling.CalculatorEngine;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +22,10 @@ public class Calculator {
     JButton buttonPoint;
     JButton buttonEqual;
     JPanel p1;
-    CalculatorEngineMsg msg = new CalculatorEngineMsg();
+
+    //Instantiating CalculatorEngine object that implements ActionListener
+    CalculatorEngine msg = new CalculatorEngine();
+
     //Constructor creates the components
     //and adds the to the frame using combination of
     //BorderLayout and Gridlayout
@@ -51,6 +54,7 @@ public class Calculator {
         button9 = new JButton("9");
         buttonPoint = new JButton(".");
         buttonEqual = new JButton("=");
+
         //Adding listeners for each button
         button0.addActionListener(msg);
         button1.addActionListener(msg);
