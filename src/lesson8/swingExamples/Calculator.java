@@ -1,5 +1,7 @@
 package lesson8.swingExamples;
 
+import lesson9.eventHandling.CalculatorEngineMsg;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -20,6 +22,7 @@ public class Calculator {
     JButton buttonPoint;
     JButton buttonEqual;
     JPanel p1;
+    CalculatorEngineMsg msg = new CalculatorEngineMsg();
     //Constructor creates the components
     //and adds the to the frame using combination of
     //BorderLayout and Gridlayout
@@ -48,6 +51,19 @@ public class Calculator {
         button9 = new JButton("9");
         buttonPoint = new JButton(".");
         buttonEqual = new JButton("=");
+        //Adding listeners for each button
+        button0.addActionListener(msg);
+        button1.addActionListener(msg);
+        button2.addActionListener(msg);
+        button3.addActionListener(msg);
+        button4.addActionListener(msg);
+        button5.addActionListener(msg);
+        button6.addActionListener(msg);
+        button7.addActionListener(msg);
+        button8.addActionListener(msg);
+        button9.addActionListener(msg);
+        buttonPoint.addActionListener(msg);
+        buttonEqual.addActionListener(msg);
         //Create the panel with GridLayout with 12 buttons -
         //10 numeric ones, period, and the equal sign
         p1 = new JPanel();
@@ -81,5 +97,6 @@ public class Calculator {
 
     public static void main(String[] args) {
         new Calculator();
+
     }
 }

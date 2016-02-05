@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 public class CalculatorEngineMsg implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
-        JOptionPane.showConfirmDialog(null, "Something happened..", "Just a test", JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showConfirmDialog(null, "Something happened..", "Just a test", JOptionPane.DEFAULT_OPTION);
     }
 
     public static void main(String[] args) {
