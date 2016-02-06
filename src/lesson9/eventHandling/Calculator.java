@@ -1,4 +1,4 @@
-package lesson8.swingExamples;
+package lesson9.eventHandling;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,7 +7,7 @@ public class Calculator {
 
     // Declare all calculator's components.
     JPanel windowContent;
-    JTextField displayField;
+    private JTextField displayField;
     JButton button0;
     JButton button1;
     JButton button2;
@@ -22,8 +22,16 @@ public class Calculator {
     JButton buttonEqual;
     JPanel p1;
 
+    public void setDisplayValue(String val){
+        displayField.setText(val);
+    }
+
+    public String getDisplayValue() {
+        return displayField.getText();
+    }
+
     // Constructor  creates the components
-    // and adds the to the frame using combination of
+    // and adds them to the frame using combination of
     // BorderLayout and Gridlayout
 
     Calculator(){
@@ -57,11 +65,11 @@ public class Calculator {
         buttonPoint = new JButton(".");
         buttonEqual=new JButton("=");
 
-        // Create the panel with the GridLayout with 12 buttons �
+        // Create the panel with the GridLayout with 12 buttons
         //10 numeric ones, period, and the equal sign
 
         p1 = new JPanel();
-        GridLayout gl =new GridLayout(4,3);
+        GridLayout gl = new GridLayout(4,3);
         p1.setLayout(gl);
 
         //  Add window controls to the panel p1
@@ -78,6 +86,17 @@ public class Calculator {
         p1.add(buttonPoint);
         p1.add(buttonEqual);
 
+
+        //CalculatorEngineMsg calcEngine = new CalculatorEngineMsg();
+        CalculatorEngine calcEngine = new CalculatorEngine(this);
+        button0.addActionListener(calcEngine);
+        button1.addActionListener(calcEngine);
+        button2.addActionListener(calcEngine);
+        button3.addActionListener(calcEngine);
+        button4.addActionListener(calcEngine);
+
+
+
         // Add the panel p1 to the center of the window
         windowContent.add("Center",p1);
 
@@ -85,13 +104,13 @@ public class Calculator {
         JFrame frame = new JFrame("Calculator");
         frame.setContentPane(windowContent);
 
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
         // Set the size of the window to be big enough to accommodate all controls
         frame.pack();
 
         // Display the window
         frame.setVisible(true);
+
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
 

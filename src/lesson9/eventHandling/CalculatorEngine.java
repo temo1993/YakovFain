@@ -4,17 +4,28 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CalculatorEngine implements ActionListener{
+public class CalculatorEngine implements ActionListener {
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        //Get the source object of this action
-        JButton clickedButton = (JButton) e.getSource();
-        //Get the button's label
+    Calculator parent; // a reference to the Calculator
+
+    // Constructor stores the reference to the
+    // Calculator window in  the member variable parent
+    CalculatorEngine(Calculator parent){
+        this.parent = parent;
+    }
+
+    public void actionPerformed(ActionEvent e){
+        // Get the source of this action
+        JButton clickedButton =  (JButton) e.getSource();
+
+        // Get the existing text from the Calculator's
+        // display field. Reaching inside another object is bad.
+        String displayFieldText = parent.getDisplayValue();
+
+        // Get the button's label
         String clickedButtonLabel = clickedButton.getText();
-        //Concatenate the button's label
-        //to the text of the message box
-        JOptionPane.showConfirmDialog(null, "You pressed --> " + clickedButtonLabel,
-                "Just a test", JOptionPane.DEFAULT_OPTION);
+
+        parent.setDisplayValue(displayFieldText +
+                clickedButtonLabel);
     }
 }
