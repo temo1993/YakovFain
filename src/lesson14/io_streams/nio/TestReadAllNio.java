@@ -1,12 +1,11 @@
 package lesson14.io_streams.nio;
 
-import java.util.List;
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 
 public class TestReadAllNio {
