@@ -12,7 +12,7 @@ class EmployeeList {
    // Open autocloseable Connection, Statement and get the result set
    try (Connection conn = DriverManager.getConnection( "jdbc:derby://localhost:1527/Lesson");
 		Statement stmt = conn.createStatement(); 
-		ResultSet rs = stmt.executeQuery(sqlQuery); ) {  
+		ResultSet rs = stmt.executeQuery(sqlQuery)) {
 
       // Process the result set - print Employees
       while (rs.next()){ 
