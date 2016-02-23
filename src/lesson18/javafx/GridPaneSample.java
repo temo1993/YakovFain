@@ -45,6 +45,8 @@ public class GridPaneSample extends Application {
 	
 		Scene scene = new Scene(root,250,150);
 		primaryStage.setScene(scene);
+        primaryStage.setTitle("Sign in");
+        primaryStage.setResizable(false);
 		primaryStage.show();
 
 	}
